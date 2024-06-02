@@ -1,0 +1,7 @@
+npm install dotenv --s
+npm install mongoose --s
+npm install express --s
+npm install body-parser --s
+npm install cors --s
+npm install nodemon --s
+npm install express-session connect-flash --s
