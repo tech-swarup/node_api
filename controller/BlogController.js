@@ -21,7 +21,7 @@ const postBlog = async (req, res) => {
             content: req.body.content
         });
         await Blogdata.save().then(result => {
-            return res.send({ msg: "Blog created" })
+            return res.send({ msg: "Blog created successfully" })
         });
 
         pusher.trigger('my-channel', 'my-event', {
