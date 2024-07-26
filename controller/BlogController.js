@@ -1,4 +1,5 @@
 const Blog=require('../model/BlogModel')
+const pusher = require('../Pusher');
 
 const getBlog=async(req,res)=>{
     Blog.find() .then((documents) => {
@@ -21,7 +22,11 @@ const postBlog = async (req, res) => {
         });
         await Blogdata.save().then(result => {
             return res.send({ msg: "Blog created" })
-        })
+        });
+
+        pusher.trigger('my-channel', 'my-event', {
+            message: "Blog created successfully"
+        });
     }
     catch (error) {
         console.log(error);
